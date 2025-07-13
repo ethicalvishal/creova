@@ -1,0 +1,98 @@
+.add-job-modal-animate {
+  animation: fadeSlideIn 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes fadeSlideIn {
+  0% { opacity: 0; transform: translateY(24px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.add-job-modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1050;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(2.5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.add-job-modal-card {
+  box-shadow: 0 12px 32px rgba(67,206,162,0.13), 0 2px 8px rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s, border-top 0.3s;
+  position: relative;
+  border-radius: 22px;
+  min-width: 380px;
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 48px;
+}
+.add-job-modal-card:hover::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  z-index: 10;
+  opacity: 0.9;
+  border-radius: 22px 22px 0 0;
+  transition: opacity 0.3s;
+}
+.form-control:focus, .form-select:focus, textarea:focus {
+  border-color: #43cea2 !important;
+  box-shadow: 0 0 0 2px rgba(67,206,162,0.13);
+  outline: none;
+  background: #f8fffa;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-control:hover, .form-select:hover, textarea:hover {
+  border-color: #43cea2;
+}
+.add-job-btn-gradient {
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  color: #fff;
+  border: none;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.add-job-btn-gradient:hover, .add-job-btn-gradient:focus {
+  background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(67,206,162,0.18);
+}
+@media (min-width: 768px) {
+  .modal-body .row.g-3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+  }
+  .modal-body .col-md-6 {
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
+  .add-job-modal-card {
+    max-width: 720px;
+    min-width: 480px;
+  }
+}
+@media (max-width: 500px) {
+  .add-job-modal-card {
+    min-width: 98vw !important;
+    max-width: 99vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    border-radius: 16px;
+    margin-top: 24px;
+  }
+  .card-header, .card-body, .card-footer, .modal-body, .modal-footer {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .modal-body .row.g-3 {
+    flex-direction: column;
+    gap: 1rem 0;
+  }
+  .modal-body .col-md-6 {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+} 

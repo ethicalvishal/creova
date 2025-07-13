@@ -1,0 +1,65 @@
+.add-user-dropdown-animate {
+  animation: fadeSlideIn 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes fadeSlideIn {
+  0% { opacity: 0; transform: translateY(24px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.input-icon {
+  pointer-events: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.add-user-btn-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: 2px solid transparent;
+  transition: background 0.2s, border 0.2s, box-shadow 0.2s;
+}
+.add-user-btn-gradient:hover, .add-user-btn-gradient:focus {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b47b6 100%);
+  border: 2px solid #667eea;
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(102,126,234,0.18);
+}
+@media (max-width: 500px) {
+  .add-user-dropdown-animate {
+    min-width: 90vw !important;
+    max-width: 98vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+  .card-header, .card-body, .card-footer {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+.add-user-modal-animate input:focus, .add-user-modal-animate input:hover,
+.add-user-modal-animate select:focus, .add-user-modal-animate select:hover,
+.add-user-modal-animate textarea:focus, .add-user-modal-animate textarea:hover {
+  border-color: #47ab7a !important;
+  box-shadow: 0 0 0 2px rgba(6, 115, 165, 0.15);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.add-user-modal-animate .card {
+  position: relative;
+  transition: box-shadow 0.2s;
+}
+.add-user-modal-animate .card::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #2257ab 0%, #164861 100%);
+  opacity: 0;
+  transition: opacity 0.25s;
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+  z-index: 2;
+}
+.add-user-modal-animate .card:hover::before {
+  opacity: 1;
+} 

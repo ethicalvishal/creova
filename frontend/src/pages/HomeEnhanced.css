@@ -1,0 +1,290 @@
+.glass-card {
+  background: rgba(255,255,255,0.85) !important;
+  backdrop-filter: blur(8px);
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 32px rgba(25,118,210,0.08);
+  border: none;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #1976d2 60%, #40a9ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.hero-bg-animated {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-section {
+  padding-top: 0; /* Remove gap to connect with header border */
+  padding-bottom: 80px;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  margin-top: -80px; /* Reduce top margin to move content up */
+}
+
+.section {
+  padding: 64px 0 48px 0;
+}
+
+.section-title h2 {
+  font-weight: 700;
+  color: #1976d2;
+  margin-bottom: 0.5rem;
+}
+
+.section-title p {
+  color: #5a5a5a;
+  margin-bottom: 2rem;
+}
+
+.cta-section {
+  padding: 64px 0 64px 0;
+  background: linear-gradient(90deg, #e3f0fc 0%, #f8fbff 100%);
+  border-radius: 2rem;
+  margin: 48px 0 0 0;
+}
+
+.tech-stack-section {
+  position: relative;
+  z-index: 1;
+  padding: 80px 0 60px 0;
+}
+.tech-category-group {
+  margin-bottom: 3rem !important;
+}
+.tech-category-label {
+  margin-bottom: 2rem;
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
+  background: linear-gradient(90deg, #1976d2 60%, #40a9ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  padding: 0.5rem 0;
+}
+.tech-logo-container {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.55);
+  border-radius: 50%;
+  box-shadow: 0 4px 18px 0 rgba(25,118,210,0.10);
+  border: 2.5px solid rgba(25,118,210,0.10);
+  transition: box-shadow 0.2s, border 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+  animation: floatY 3.5s ease-in-out infinite;
+}
+.tech-logo {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(25,118,210,0.10));
+}
+.tech-stack-card {
+  background: rgba(255,255,255,0.92) !important;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(25,118,210,0.10);
+  border: none;
+  transition: box-shadow 0.2s, transform 0.2s, border 0.2s;
+  position: relative;
+  overflow: visible;
+  padding: 2rem 1.5rem !important;
+  margin-bottom: 1rem;
+}
+.tech-stack-card:hover {
+  box-shadow: 0 16px 48px 0 rgba(25, 118, 210, 0.18) !important;
+  transform: translateY(-4px) scale(1.04);
+  border: 2px solid #40a9ff33;
+}
+.tech-name-hi {
+  font-size: 1rem;
+  color: #1976d2;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.tech-stack-hindi {
+  color: #1976d2;
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+.tech-stack-hindi-desc {
+  color: #5a5a5a;
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+}
+.gradient-divider {
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(90deg, #1976d2 0%, #40a9ff 100%);
+  border-radius: 8px;
+  margin: 0 auto 36px auto;
+  opacity: 0.18;
+}
+.enhanced-tech-card {
+  position: relative;
+  overflow: visible;
+  background: linear-gradient(135deg, rgba(255,255,255,0.82) 60%, rgba(64,169,255,0.10) 100%),
+    url('data:image/svg+xml;utf8,<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" stroke="%2340a9ff" stroke-opacity="0.07" stroke-width="4"/></svg>') center/cover no-repeat;
+  box-shadow: 0 8px 32px 0 rgba(25,118,210,0.10), 0 0 0 1.5px rgba(64,169,255,0.08) inset;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: box-shadow 0.2s, transform 0.2s, border 0.2s;
+  border: 2px solid transparent;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.enhanced-tech-card .tech-logo-container {
+  flex-shrink: 0;
+}
+.enhanced-tech-card .tech-tagline {
+  margin-top: auto;
+}
+.enhanced-tech-card:hover {
+  box-shadow: 0 16px 48px 0 rgba(25, 118, 210, 0.18) !important;
+  transform: translateY(-6px) scale(1.045);
+  border: 2px solid #40a9ff;
+}
+.enhanced-tech-card-border {
+  pointer-events: none;
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  border-radius: 24px;
+  z-index: 1;
+  background: linear-gradient(120deg, #1976d2 0%, #40a9ff 100%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.enhanced-tech-card:hover .enhanced-tech-card-border {
+  opacity: 0.18;
+}
+.enhanced-tech-icon {
+  filter: drop-shadow(0 0 16px #40a9ff55);
+  animation: floatY 3.5s ease-in-out infinite;
+  background: rgba(64,169,255,0.13);
+}
+.tech-tagline {
+  font-size: 0.98rem;
+  color: #1976d2;
+  font-weight: 600;
+  opacity: 0.92;
+}
+.enhanced-process-card {
+  position: relative;
+  overflow: visible;
+  background: linear-gradient(135deg, rgba(255,255,255,0.85) 60%, rgba(64,169,255,0.10) 100%);
+  box-shadow: 0 8px 32px 0 rgba(25,118,210,0.10), 0 0 0 1.5px rgba(64,169,255,0.08) inset;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: box-shadow 0.2s, transform 0.2s, border 0.2s;
+  border: 2px solid transparent;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.enhanced-process-card:hover {
+  box-shadow: 0 16px 48px 0 rgba(25, 118, 210, 0.18) !important;
+  transform: translateY(-6px) scale(1.045);
+  border: 2px solid #40a9ff;
+}
+.enhanced-process-card-border {
+  pointer-events: none;
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  border-radius: 24px;
+  z-index: 1;
+  background: linear-gradient(120deg, #1976d2 0%, #40a9ff 100%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.enhanced-process-card:hover .enhanced-process-card-border {
+  opacity: 0.18;
+}
+.enhanced-process-icon {
+  filter: drop-shadow(0 0 16px #40a9ff55);
+  animation: floatY 3.5s ease-in-out infinite;
+  background: none;
+}
+.enhanced-process-step-number {
+  box-shadow: 0 2px 12px #1976d233, 0 0 0 4px #40a9ff22;
+  outline: 3px solid #40a9ff33;
+  border: 3px solid #fff;
+  background: linear-gradient(135deg, #1976d2 60%, #40a9ff 100%);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-shadow: 0 2px 8px #1976d2aa;
+}
+@media (max-width: 991px) {
+  .hero-section {
+    padding-top: 0; /* Remove gap to connect with header border on mobile */
+    padding-bottom: 40px;
+  }
+  .section {
+    padding: 40px 0 32px 0;
+  }
+  .cta-section {
+    padding: 40px 0 40px 0;
+    border-radius: 1rem;
+  }
+  .tech-stack-section {
+    padding: 60px 0 40px 0;
+  }
+  .tech-category-group {
+    margin-bottom: 2.5rem !important;
+  }
+  .tech-logo-container {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.8rem;
+  }
+  .tech-logo {
+    width: 28px;
+    height: 28px;
+  }
+  .tech-stack-card {
+    border-radius: 14px;
+    padding: 1.5rem 1rem !important;
+    margin-bottom: 0.8rem;
+  }
+  .enhanced-tech-card {
+    border-radius: 16px;
+    padding: 1.2rem 0.7rem !important;
+    min-height: 240px;
+  }
+  .enhanced-tech-icon {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 28px !important;
+  }
+  .enhanced-process-card {
+    border-radius: 16px;
+    padding: 1.2rem 0.7rem !important;
+    min-height: 240px;
+  }
+  .enhanced-process-step-number {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 1.1rem !important;
+  }
+} 
