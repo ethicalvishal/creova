@@ -1,3 +1,4 @@
+  export const API_URL = process.env.REACT_APP_API_URL;
 // Centralized constants for Creova Technologies
 export const APP_CONSTANTS = {
   LAUNCHING_SOON: 'Launching Soon',

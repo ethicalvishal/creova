@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
+import { API_URL } from '../constants';
 
-const API_URL = 'http://localhost:5000/api/blog';
+const USER_API_URL = API_URL.replace('/blog','');
 
 const AdminBlog = () => {
   const [token, setToken] = useState(localStorage.getItem('adminToken') || '');
@@ -72,7 +73,7 @@ const AdminBlog = () => {
     setUserLoading(true);
     setUserError(null);
     try {
-      const res = await fetch('http://localhost:5000/api/user/list', {
+      const res = await fetch(`${USER_API_URL}/user/list`, {
         headers: { 'X-Admin-Token': token }
       });
       const data = await res.json();
@@ -198,7 +199,7 @@ const AdminBlog = () => {
     setDeleteUserLoading(true);
     setDeleteUserError(null);
     try {
-      const res = await fetch(`http://localhost:5000/api/user/delete/${deleteUserId}`, {
+      const res = await fetch(`${USER_API_URL}/user/delete/${deleteUserId}`, {
         method: 'DELETE',
         headers: { 'X-Admin-Token': token }
       });

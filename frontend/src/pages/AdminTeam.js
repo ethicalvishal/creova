@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
-
-const API_URL = '/api/admin/team';
+import { API_URL } from '../constants';
 
 const AdminTeam = () => {
   const [team, setTeam] = useState([]);

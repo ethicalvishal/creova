@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import './AdminUsers.css';
+import { API_URL } from '../constants';
 
 const AdminUsers = () => {
   const [token] = useState(localStorage.getItem('adminToken') || '');
@@ -38,7 +39,7 @@ const AdminUsers = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch('http://localhost:5000/api/user/list', {
+      const res = await fetch(`${API_URL.replace('/careers','').replace('/blog','')}/user/list`, {
         headers: { 'X-Admin-Token': token }
       });
       const data = await res.json();
@@ -56,7 +57,7 @@ const AdminUsers = () => {
     setDeleteLoading(true);
     setDeleteError(null);
     try {
-      const res = await fetch(`http://localhost:5000/api/user/delete/${deleteUserId}`, {
+      const res = await fetch(`${API_URL.replace('/careers','').replace('/blog','')}/user/delete/${deleteUserId}`, {
         method: 'DELETE',
         headers: { 'X-Admin-Token': token }
       });
@@ -80,7 +81,7 @@ const AdminUsers = () => {
     setAddError(null);
     setAddSuccess(null);
     try {
-      const res = await fetch('http://localhost:5000/api/user/add', {
+      const res = await fetch(`${API_URL.replace('/careers','').replace('/blog','')}/user/add`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { API_URL } from '../constants';
 
 const AdminContacts = () => {
   const [contacts, setContacts] = useState([]);
@@ -17,7 +18,7 @@ const AdminContacts = () => {
 
   const fetchContacts = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/contact/list');
+      const response = await fetch(`${API_URL.replace('/careers','').replace('/blog','')}/contact/list`);
       const data = await response.json();
       
       if (data.success) {
@@ -32,7 +33,7 @@ const AdminContacts = () => {
 
   const updateContactStatus = async (contactId, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/contact/${contactId}/status`, {
+      const response = await fetch(`${API_URL.replace('/careers','').replace('/blog','')}/contact/${contactId}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -53,7 +54,7 @@ const AdminContacts = () => {
   const deleteContact = async (contactId) => {
     if (window.confirm('Are you sure you want to delete this contact message?')) {
       try {
-        const response = await fetch(`http://localhost:5000/api/contact/${contactId}`, {
+        const response = await fetch(`${API_URL.replace('/careers','').replace('/blog','')}/contact/${contactId}`, {
           method: 'DELETE'
         });
 

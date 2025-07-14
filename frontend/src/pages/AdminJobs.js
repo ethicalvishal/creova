@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import './AdminJobs.css';
-
-const API_URL = 'http://localhost:5000/api/careers';
+import { API_URL } from '../constants';
 
 const AdminJobs = () => {
   const [token, setToken] = useState(localStorage.getItem('adminToken') || '');
@@ -625,7 +624,7 @@ const AdminJobs = () => {
                             <td>{app.email}</td>
                             <td>{app.phone}</td>
                             <td>{app.experience}</td>
-                            <td>{app.resume_file ? <a href={`http://localhost:5000/uploads/resumes/${app.resume_file}`} target="_blank" rel="noopener noreferrer" aria-label={`Download resume for ${app.name}`}>Download</a> : 'N/A'}</td>
+                            <td>{app.resume_file ? <a href={`${API_URL}/uploads/resumes/${app.resume_file}`} target="_blank" rel="noopener noreferrer" aria-label={`Download resume for ${app.name}`}>Download</a> : 'N/A'}</td>
                           </tr>
                         ))}
                       </tbody>

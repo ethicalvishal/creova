@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
-const API_URL = '/api/admin/services';
+import { API_URL } from '../constants';
 
 const AdminServices = () => {
   const [services, setServices] = useState([]);

@@ -17,6 +17,8 @@ export const RECAPTCHA_CONFIG = {
   TOKEN_TIMEOUT: 2 * 60 * 1000, // 2 minutes
 };
 
+import { API_URL } from '../constants';
+
 // Helper function to load reCAPTCHA script
 export const loadRecaptchaScript = () => {
   return new Promise((resolve, reject) => {
@@ -47,7 +49,7 @@ export const executeRecaptcha = async (action) => {
 // Helper function to verify reCAPTCHA token on backend
 export const verifyRecaptchaToken = async (token) => {
   try {
-    const response = await fetch('/api/verify-recaptcha', {
+    const response = await fetch(`${API_URL.replace('/careers','').replace('/blog','')}/verify-recaptcha`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

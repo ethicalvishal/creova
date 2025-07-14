@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { API_URL } from '../constants';
 
 const AdminApplications = () => {
   const [applications, setApplications] = useState([]);
@@ -17,7 +18,7 @@ const AdminApplications = () => {
 
   const fetchApplications = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/careers/applications');
+      const response = await fetch(`${API_URL}/careers/applications`);
       const data = await response.json();
       
       if (data.success) {
@@ -32,7 +33,7 @@ const AdminApplications = () => {
 
   const updateApplicationStatus = async (applicationId, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/careers/applications/${applicationId}/status`, {
+      const response = await fetch(`${API_URL}/careers/applications/${applicationId}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -54,7 +55,7 @@ const AdminApplications = () => {
   const deleteApplication = async (applicationId) => {
     if (window.confirm('Are you sure you want to delete this application?')) {
       try {
-        const response = await fetch(`http://localhost:5000/api/careers/applications/${applicationId}`, {
+        const response = await fetch(`${API_URL}/careers/applications/${applicationId}`, {
           method: 'DELETE'
         });
 

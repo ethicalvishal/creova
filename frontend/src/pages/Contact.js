@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { buttonFeatures } from '../utils/buttonFeatures';
 import HeroSection from '../components/HeroSection';
+import { API_URL } from '../constants';
 
 const Contact = () => {
   const [formData, setFormData] = useState({

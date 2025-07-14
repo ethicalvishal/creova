@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { APP_CONSTANTS } from '../constants';
+import { APP_CONSTANTS, API_URL } from '../constants';
 import HeroSection from '../components/HeroSection';
 
 const sidebarLinks = [
@@ -44,7 +44,7 @@ const Admin = () => {
 
   const fetchDashboardData = async () => {
     try {
-      const statsResponse = await fetch('http://localhost:5000/api/admin/stats');
+      const statsResponse = await fetch(`${API_URL.replace('/careers','').replace('/blog','')}/admin/stats`);
       const statsData = await statsResponse.json();
       if (statsData.success && statsData.stats) {
         setStats({
@@ -71,10 +71,10 @@ const Admin = () => {
           blogPostsGrowth: 0
         });
       }
-      const applicationsResponse = await fetch('http://localhost:5000/api/admin/recent-applications');
+      const applicationsResponse = await fetch(`${API_URL.replace('/careers','').replace('/blog','')}/admin/recent-applications`);
       const applicationsData = await applicationsResponse.json();
       if (applicationsData.success) setRecentApplications(applicationsData.applications);
-      const contactsResponse = await fetch('http://localhost:5000/api/admin/recent-contacts');
+      const contactsResponse = await fetch(`${API_URL.replace('/careers','').replace('/blog','')}/admin/recent-contacts`);
       const contactsData = await contactsResponse.json();
       if (contactsData.success) setRecentContacts(contactsData.contacts);
     } catch (error) {
@@ -418,7 +418,7 @@ const Admin = () => {
         </div>
         {/* Rural/Desi Quote at Bottom */}
         <div className="text-center mt-5 mb-2" style={{fontWeight: 500, fontSize: '1.08rem', color: '#1976d2', opacity: 0.92}}>
-          <span role="img" aria-label="wheat">��</span> "जहाँ मेहनत हो खेतों में, वहाँ तरक्की हो तकनीक में!" <span role="img" aria-label="rocket">🚀</span><br/>
+          <span role="img" aria-label="wheat"></span> "जहाँ मेहनत हो खेतों में, वहाँ तरक्की हो तकनीक में!" <span role="img" aria-label="rocket">🚀</span><br/>
           <span style={{fontSize: '0.98rem', color: '#555'}}>"Where there is hard work in the fields, there is progress in technology!"</span>
         </div>
       </main>
