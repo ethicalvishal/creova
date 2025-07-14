@@ -335,10 +335,10 @@ const AdminDashboard = () => {
                   ) : (
                     notifications.map(notification => (
                       <li key={notification.id}>
-                        <a className="dropdown-item" href="#" aria-label="View All Notifications">
+                        <button className="dropdown-item" aria-label="View All Notifications">
                           <i className={`fas fa-${notification.icon} me-2`}></i>
                           {notification.message}
-                        </a>
+                        </button>
                       </li>
                     ))
                   )}

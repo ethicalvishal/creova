@@ -181,7 +181,7 @@ const AdminJobs = () => {
   const getAppCount = (jobId) => allApplications.filter(app => app.job_id === jobId).length;
 
   // Prepare data for chart
-  const chartData = jobs.map(job => ({ name: job.title, Applications: getAppCount(job.id) }));
+  // const chartData = jobs.map(job => ({ name: job.title, Applications: getAppCount(job.id) }));
 
   if (!isAuthenticated) {
     return (

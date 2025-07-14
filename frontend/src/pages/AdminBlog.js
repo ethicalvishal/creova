@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { API_URL } from '../constants';
@@ -33,7 +33,7 @@ const AdminBlog = () => {
   const [users, setUsers] = useState([]);
   const [userLoading, setUserLoading] = useState(false);
   const [userError, setUserError] = useState(null);
-  const [userSearch, setUserSearch] = useState('');
+  // const [userSearch, setUserSearch] = useState('');
   const [deleteUserId, setDeleteUserId] = useState(null);
   const [deleteUserLoading, setDeleteUserLoading] = useState(false);
   const [deleteUserError, setDeleteUserError] = useState(null);

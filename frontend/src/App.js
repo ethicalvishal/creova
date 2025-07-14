@@ -83,7 +83,7 @@ function App() {
     return cleanup;
   }, []);
 
-  const location = window.location.pathname;
+  // const location = window.location.pathname;
   // const isAdminRoute = location.startsWith('/admin');
   // Show LaunchingSoon before launch
   // if (!isLaunched() && !isAdminRoute) {

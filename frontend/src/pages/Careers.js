@@ -456,12 +456,12 @@ const Careers = () => {
                 'linear-gradient(120deg, #ff9800 40%, #ffc107 100%)',
                 'linear-gradient(120deg, #e53935 40%, #e35d5b 100%)'
               ];
-              const iconBg = [
-                'linear-gradient(135deg, #1976d2 0%, #40a9ff 100%)',
-                'linear-gradient(135deg, #43cea2 0%, #185a9d 100%)',
-                'linear-gradient(135deg, #ff9800 0%, #ffc107 100%)',
-                'linear-gradient(135deg, #e53935 0%, #e35d5b 100%)'
-              ];
+              // const iconBg = [
+              //   'linear-gradient(135deg, #1976d2 0%, #40a9ff 100%)',
+              //   'linear-gradient(135deg, #43cea2 0%, #185a9d 100%)',
+              //   'linear-gradient(135deg, #ff9800 0%, #ffc107 100%)',
+              //   'linear-gradient(135deg, #e53935 0%, #e35d5b 100%)'
+              // ];
               return (
                 <div key={index} className="col-lg-3 col-md-6 d-flex align-items-stretch">
                   <div className="glass-card why-creova-card position-relative h-100 text-center p-4" style={{
