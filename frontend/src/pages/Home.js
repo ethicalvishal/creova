@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { 
-  APP_CONSTANTS, 
-  MESSAGES, 
-  getLaunchBadge, 
-  getLaunchStatus, 
-  isLaunched,
-  getCompanyTagline,
-  getCompanyDescription,
-  getCTAButtonText,
-  getCompanyStats,
-  getPostLaunchTestimonials
-} from '../constants';
+// import { 
+//   APP_CONSTANTS, 
+//   MESSAGES, 
+//   getLaunchBadge, 
+//   getLaunchStatus, 
+//   isLaunched,
+//   getCompanyTagline,
+//   getCompanyDescription,
+//   getCTAButtonText,
+//   getCompanyStats,
+//   getPostLaunchTestimonials
+// } from '../constants';
 import HeroSection from '../components/HeroSection';
 import './HomeEnhanced.css'; // Add a new CSS file for enhanced styles
 // Remove SVG imports for logos
@@ -28,7 +28,7 @@ import './HomeEnhanced.css'; // Add a new CSS file for enhanced styles
 
 const Home = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [currentFeature, setCurrentFeature] = useState(0);
+  // const [currentFeature, setCurrentFeature] = useState(0); // if not used
 
   // Keep current testimonials as they are - will be updated when real success stories are available
   const testimonials = [
@@ -228,7 +228,7 @@ const Home = () => {
 
     // Auto-rotate features
     const featureInterval = setInterval(() => {
-      setCurrentFeature((prev) => (prev + 1) % conciseFeatures.length);
+      // setCurrentFeature((prev) => (prev + 1) % conciseFeatures.length); // if not used
     }, 4000);
 
     return () => {

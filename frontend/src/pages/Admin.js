@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { APP_CONSTANTS, API_URL } from '../constants';
+// import { APP_CONSTANTS, API_URL } from '../constants';
+import { API_URL } from '../constants';
 import HeroSection from '../components/HeroSection';
 
 const sidebarLinks = [
@@ -29,7 +30,7 @@ const Admin = () => {
   const [loading, setLoading] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
-  const [avatarError, setAvatarError] = useState(false);
+  // const [avatarError, setAvatarError] = useState(false); // if not used
 
   // Admin authentication check
   useEffect(() => {
@@ -206,13 +207,13 @@ const Admin = () => {
                 height: 44,
                 borderRadius: '50%',
                 fontSize: 22,
-                background: avatarError ? 'linear-gradient(135deg, #1976d2 0%, #40a9ff 100%)' : 'linear-gradient(135deg, #00bfae 0%, #1de9b6 100%)',
+                background: 'linear-gradient(135deg, #1976d2 0%, #40a9ff 100%)',
                 boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
                 border: '2px solid #fff',
                 overflow: 'hidden'
               }}
             >
-              {avatarError ? (
+              {/* {avatarError ? (
                 <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="20" cy="20" r="18" fill="url(#circle-c-gradient)" />
                   <defs>
@@ -223,14 +224,14 @@ const Admin = () => {
                   </defs>
                   <text x="50%" y="56%" textAnchor="middle" dominantBaseline="middle" fontFamily="Segoe UI, Arial, sans-serif" fontWeight="bold" fontSize="18" fill="#fff">C</text>
                 </svg>
-              ) : (
+              ) : ( */}
                 <img
                   src={'/images/vishal-singh.jpg'}
                   alt="Administrator"
                   style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%'}}
-                  onError={e => { setAvatarError(true); console.log('Admin avatar image failed to load:', e.target.src); }}
+                  // onError={e => { setAvatarError(true); console.log('Admin avatar image failed to load:', e.target.src); }}
                 />
-              )}
+              {/* )} */}
             </div>
             <div>
               <div className="fw-semibold">Admin User</div>
