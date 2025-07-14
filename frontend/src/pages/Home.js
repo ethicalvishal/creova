@@ -2,18 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-// import { 
-//   APP_CONSTANTS, 
-//   MESSAGES, 
-//   getLaunchBadge, 
-//   getLaunchStatus, 
-//   isLaunched,
-//   getCompanyTagline,
-//   getCompanyDescription,
-//   getCTAButtonText,
-//   getCompanyStats,
-//   getPostLaunchTestimonials
-// } from '../constants';
+import { APP_CONSTANTS, getLaunchStatus, isLaunched } from '../constants';
 import HeroSection from '../components/HeroSection';
 import './HomeEnhanced.css'; // Add a new CSS file for enhanced styles
 // Remove SVG imports for logos
