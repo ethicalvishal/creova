@@ -10,9 +10,9 @@ const Header = () => {
   const [showNotif, setShowNotif] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
-  const [isSearching, setIsSearching] = useState(false);
+  // const [searchQuery, setSearchQuery] = useState('');
+  // const [searchResults, setSearchResults] = useState([]);
+  // const [isSearching, setIsSearching] = useState(false);
   const navRef = React.useRef();
 
   // Auth state
@@ -104,24 +104,24 @@ const Header = () => {
   const closeMobileMenu = () => setMobileMenu(false);
 
   // Search functionality
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    if (!searchQuery.trim()) return;
+  // const handleSearch = async (e) => {
+  //   e.preventDefault();
+  //   if (!searchQuery.trim()) return;
     
-    setIsSearching(true);
-    try {
-      const result = await buttonFeatures.search.globalSearch(searchQuery);
-      if (result.success) {
-        setSearchResults(result.data.results || []);
-      } else {
-        buttonFeatures.notifications.show('Search failed. Please try again.', 'error');
-      }
-    } catch (error) {
-      buttonFeatures.notifications.show('Search error. Please try again.', 'error');
-    } finally {
-      setIsSearching(false);
-    }
-  };
+  //   setIsSearching(true);
+  //   try {
+  //     const result = await buttonFeatures.search.globalSearch(searchQuery);
+  //     if (result.success) {
+  //       setSearchResults(result.data.results || []);
+  //     } else {
+  //       buttonFeatures.notifications.show('Search failed. Please try again.', 'error');
+  //     }
+  //   } catch (error) {
+  //     buttonFeatures.notifications.show('Search error. Please try again.', 'error');
+  //   } finally {
+  //     setIsSearching(false);
+  //   }
+  // };
 
   // Language switching
   const handleLanguageSwitch = (language) => {

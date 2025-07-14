@@ -23,9 +23,9 @@ const AdminAnalytics = () => {
   const [dateRange, setDateRange] = useState('30');
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchAnalytics();
-  }, [dateRange]);
+  // useEffect(() => {
+  //   fetchAnalytics();
+  // }, [dateRange]);
 
   const fetchAnalytics = async () => {
     setLoading(true);
@@ -57,10 +57,10 @@ const AdminAnalytics = () => {
     return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
 
-  const getPercentageChange = (current, previous) => {
-    if (previous === 0) return 100;
-    return ((current - previous) / previous * 100).toFixed(1);
-  };
+  // const getPercentageChange = (current, previous) => {
+  //   if (previous === 0) return 100;
+  //   return ((current - previous) / previous * 100).toFixed(1);
+  // };
 
   const renderOverviewCards = () => (
     <div className="row g-4 mb-4">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { APP_CONSTANTS } from '../constants';
+// import { Link } from 'react-router-dom';
+// import { APP_CONSTANTS } from '../constants';
 import HeroSection from '../components/HeroSection';
 
 const Careers = () => {

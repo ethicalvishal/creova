@@ -38,12 +38,12 @@ const AdminBlog = () => {
   const [deleteUserLoading, setDeleteUserLoading] = useState(false);
   const [deleteUserError, setDeleteUserError] = useState(null);
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      fetchPosts();
-      fetchUsers();
-    }
-  }, [isAuthenticated]);
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     fetchPosts();
+  //     fetchUsers();
+  //   }
+  // }, [isAuthenticated]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -227,10 +227,10 @@ const AdminBlog = () => {
     });
   };
 
-  const filteredUsers = users.filter(u =>
-    u.name.toLowerCase().includes(userSearch.toLowerCase()) ||
-    u.email.toLowerCase().includes(userSearch.toLowerCase())
-  );
+  // const filteredUsers = users.filter(u =>
+  //   u.name.toLowerCase().includes(userSearch.toLowerCase()) ||
+  //   u.email.toLowerCase().includes(userSearch.toLowerCase())
+  // );
 
   // Modal JSX for Add New Post
   const addPostModal = showAddModal ? ReactDOM.createPortal(

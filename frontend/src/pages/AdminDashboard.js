@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, Routes, Route } from 'react-router-dom';
-import { APP_CONSTANTS } from '../constants';
+// import { APP_CONSTANTS } from '../constants';
 
 // Import admin components
 import AdminOverview from './AdminOverview';

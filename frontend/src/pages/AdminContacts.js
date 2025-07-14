@@ -31,25 +31,25 @@ const AdminContacts = () => {
     }
   };
 
-  const updateContactStatus = async (contactId, newStatus) => {
-    try {
-      const response = await fetch(`${API_URL.replace('/careers','').replace('/blog','')}/contact/${contactId}/status`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ status: newStatus })
-      });
+  // const updateContactStatus = async (contactId, newStatus) => {
+  //   try {
+  //     const response = await fetch(`${API_URL.replace('/careers','').replace('/blog','')}/contact/${contactId}/status`, {
+  //       method: 'PUT',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ status: newStatus })
+  //     });
 
-      if (response.ok) {
-        setContacts(prev => prev.map(contact => 
-          contact.id === contactId ? { ...contact, status: newStatus } : contact
-        ));
-      }
-    } catch (error) {
-      console.error('Error updating contact status:', error);
-    }
-  };
+  //     if (response.ok) {
+  //       setContacts(prev => prev.map(contact => 
+  //         contact.id === contactId ? { ...contact, status: newStatus } : contact
+  //       ));
+  //     }
+  //   } catch (error) {
+  //     console.error('Error updating contact status:', error);
+  //   }
+  // };
 
   const deleteContact = async (contactId) => {
     if (window.confirm('Are you sure you want to delete this contact message?')) {
