@@ -43,6 +43,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Sitemap from './pages/Sitemap';
 import NotFound from './pages/NotFound';
+import BlogDetail from './pages/BlogDetail';
 // import LaunchingSoon from './pages/LaunchingSoon';
 // import CelebrationEvent from './pages/CelebrationEvent';
 // import UserLogin from './pages/UserLogin';
