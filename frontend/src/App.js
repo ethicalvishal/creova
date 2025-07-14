@@ -48,6 +48,7 @@ import UserRegister from './pages/UserRegister';
 import AdminProfile from './pages/AdminProfile';
 import AdminProducts from './pages/AdminProducts';
 import BlogDetail from './pages/BlogDetail';
+import AdminForgotPassword from './pages/AdminForgotPassword';
 
 // Import launch notification system
 import { initializeLaunchSystem } from './utils/launchNotification';
