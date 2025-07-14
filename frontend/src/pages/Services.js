@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import { 
-//   APP_CONSTANTS, 
-//   getLaunchBadge, 
-//   getLaunchStatus, 
-//   isLaunched,
-//   getPostLaunchServices,
-// } from '../constants';
+import { APP_CONSTANTS, getLaunchBadge, getLaunchStatus, isLaunched, getPostLaunchServices } from '../constants';
 import { buttonFeatures } from '../utils/buttonFeatures';
 import HeroSection from '../components/HeroSection';
 
