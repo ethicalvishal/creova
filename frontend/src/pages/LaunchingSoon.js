@@ -291,6 +291,50 @@ const LaunchingSoon = () => {
           100% { left: 0; bottom: 0; }
         }
       `}</style>
+      {/* Add responsive styles for mobile */}
+      <style>{`
+@media (max-width: 600px) {
+  .launching-soon-page {
+    padding: 0.5rem !important;
+  }
+  .launching-soon-bg-animated {
+    width: 100vw !important;
+    height: 100vh !important;
+    min-width: 100vw !important;
+    min-height: 100vh !important;
+  }
+  .countdown-container, .launch-countdown {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+  .countdown-block, .countdown-separator {
+    min-width: 60px !important;
+    font-size: 1.1rem !important;
+    margin: 0.2rem 0 !important;
+  }
+  .launching-soon-card, .launching-soon-section {
+    width: 98vw !important;
+    min-width: 98vw !important;
+    max-width: 99vw !important;
+    padding: 1.1rem 0.7rem !important;
+    margin: 0.7rem auto !important;
+    border-radius: 16px !important;
+  }
+  .launching-soon-title, .launching-soon-subtitle {
+    font-size: 1.2rem !important;
+    text-align: center !important;
+  }
+  .launching-soon-form input, .launching-soon-form button {
+    font-size: 1rem !important;
+    padding: 0.7rem 0.8rem !important;
+  }
+  .launching-soon-logo {
+    width: 90px !important;
+    height: 28px !important;
+  }
+}
+`}</style>
     </div>
   );
 };
