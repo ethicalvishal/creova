@@ -16,7 +16,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
 app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY', 'jwt-secret-key-change-in-production')
 
 # Initialize extensions
-CORS(app, origins=['http://localhost:3000', 'http://localhost:3002', 'costhttps://creova.vercel.app'])
+CORS(app, origins=['http://localhost:3000', 'http://localhost:3002'])
 db.init_app(app)
 jwt = JWTManager(app)
 
@@ -76,5 +76,8 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     
+    # Get port from environment variable or default to 5000
+    port = int(os.environ.get('PORT', 5000))
+    
     # Run the app
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=port)

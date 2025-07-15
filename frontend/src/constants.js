@@ -1,4 +1,4 @@
-  export const API_URL = process.env.REACT_APP_API_URL;
+export const API_URL = "https://creova-backend.onrender.com/api";
 // Centralized constants for Creova Technologies
 export const APP_CONSTANTS = {
   LAUNCHING_SOON: 'Launching Soon',
