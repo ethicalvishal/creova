@@ -304,14 +304,23 @@ const LaunchingSoon = () => {
     min-height: 100vh !important;
   }
   .countdown-container, .launch-countdown {
-    flex-direction: column !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
     align-items: center !important;
+    justify-content: center !important;
     gap: 0.5rem !important;
+    width: 100% !important;
+    margin: 0 auto !important;
   }
   .countdown-block, .countdown-separator {
-    min-width: 60px !important;
-    font-size: 1.1rem !important;
-    margin: 0.2rem 0 !important;
+    min-width: 48px !important;
+    max-width: 60px !important;
+    font-size: 0.98rem !important;
+    margin: 0.2rem 0.1rem !important;
+    padding: 0.5rem 0.2rem !important;
+    text-align: center !important;
+    flex: 1 1 40%;
+    box-sizing: border-box;
   }
   .launching-soon-card, .launching-soon-section {
     width: 98vw !important;
@@ -322,8 +331,9 @@ const LaunchingSoon = () => {
     border-radius: 16px !important;
   }
   .launching-soon-title, .launching-soon-subtitle {
-    font-size: 1.2rem !important;
+    font-size: 1.1rem !important;
     text-align: center !important;
+    word-break: break-word !important;
   }
   .launching-soon-form input, .launching-soon-form button {
     font-size: 1rem !important;
@@ -332,6 +342,12 @@ const LaunchingSoon = () => {
   .launching-soon-logo {
     width: 90px !important;
     height: 28px !important;
+  }
+  .launching-soon-card p, .launching-soon-card h1, .launching-soon-card h2, .launching-soon-card h3, .launching-soon-card h4, .launching-soon-card h5, .launching-soon-card h6 {
+    font-size: 1rem !important;
+    text-align: center !important;
+    margin: 0.3rem 0 !important;
+    word-break: break-word !important;
   }
 }
 `}</style>
