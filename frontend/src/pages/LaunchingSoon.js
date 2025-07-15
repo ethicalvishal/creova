@@ -126,21 +126,50 @@ const LaunchingSoon = () => {
               </div>
               {/* Main card on the right */}
               <div className="col-md-7">
-                <div className="card border-0 shadow-lg p-5" style={{
+                <div className="card border-0 shadow-lg p-5 launching-soon-card" style={{
                   borderRadius: 32,
-                  background: 'rgba(255,255,255,0.85)',
-                  backdropFilter: 'blur(14px)',
-                  boxShadow: '0 16px 48px 0 rgba(25,118,210,0.15)',
+                  background: 'rgba(255,255,255,0.92)',
+                  backdropFilter: 'blur(22px)',
+                  boxShadow: '0 8px 32px 0 rgba(25,118,210,0.18), 0 2px 8px 0 #43cea244',
                   border: '2.5px solid rgba(25,118,210,0.10)',
                   position: 'relative',
-                  overflow: 'hidden'
+                  overflow: 'hidden',
+                  padding: '2.2rem 1.2rem',
+                  maxWidth: 420,
+                  margin: '0 auto'
                 }}>
+                  {/* Logo with bounce/float */}
+                  <div style={{display: 'flex', justifyContent: 'center', marginBottom: 2}}>
+                    <div style={{width: 72, height: 72, animation: 'floatLogo 2.2s infinite alternate cubic-bezier(.6,-0.28,.74,.05)'}}>
+                      <svg width="100%" height="100%" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="logoVibrantGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#00796b" />
+                            <stop offset="50%" stopColor="#0d47a1" />
+                            <stop offset="100%" stopColor="#6a1b9a" />
+                          </linearGradient>
+                          <filter id="logoShadow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.18"/>
+                          </filter>
+                        </defs>
+                        <g filter="url(#logoShadow)">
+                          <path d="M15 15 C15 10, 20 5, 25 5 L35 5 C40 5, 45 10, 45 15 L45 20 C45 25, 40 30, 35 30 L25 30 C20 30, 15 25, 15 20 Z" fill="url(#logoVibrantGradient)" stroke="url(#logoVibrantGradient)" strokeWidth="2"/>
+                          <path d="M50 5 L60 5 C65 5, 70 10, 70 15 L70 20 C70 25, 65 30, 60 30 L50 30 L50 40 L55 40" fill="none" stroke="url(#logoVibrantGradient)" strokeWidth="3" strokeLinecap="round"/>
+                          <path d="M75 5 L95 5 M75 5 L75 40 L95 40 M75 17.5 L90 17.5" fill="none" stroke="url(#logoVibrantGradient)" strokeWidth="3" strokeLinecap="round"/>
+                          <ellipse cx="110" cy="22.5" rx="10" ry="12.5" fill="none" stroke="url(#logoVibrantGradient)" strokeWidth="3"/>
+                          <path d="M125 5 L135 30 L145 5" fill="none" stroke="url(#logoVibrantGradient)" strokeWidth="3" strokeLinecap="round"/>
+                          <path d="M150 40 L160 5 L170 40 M155 25 L165 25" fill="none" stroke="url(#logoVibrantGradient)" strokeWidth="3" strokeLinecap="round"/>
+                          <text x="100" y="50" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="8" fill="url(#logoVibrantGradient)" fontWeight="bold">TECHNOLOGIES</text>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
                   {/* Gradient icon and heading */}
-                  <div className="mb-4" style={{
+                  <div className="mb-2" style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: 18
+                    gap: 8
                   }}>
                     <div style={{
                       background: 'linear-gradient(135deg, #43cea2 0%, #1976d2 100%)',
@@ -171,20 +200,29 @@ const LaunchingSoon = () => {
                       textShadow: '0 2px 12px #43cea233'
                     }}>Launching Soon</h1>
                   </div>
-                  {/* Animated accent divider */}
+                  {/* Animated accent divider - more vibrant */}
                   <div style={{
                     width: 100,
                     height: 7,
                     margin: '0 auto 28px auto',
                     background: 'linear-gradient(90deg, #1976d2 0%, #43cea2 100%)',
                     borderRadius: 10,
-                    opacity: 0.22,
-                    animation: 'pulseAccent 1.5s infinite alternate, moveAccent 3s linear infinite'
+                    opacity: 0.38,
+                    animation: 'pulseAccent 1.5s infinite alternate, moveAccent 3s linear infinite, shimmerDivider 2.5s linear infinite'
                   }}></div>
                   <h3 className="text-muted mb-4" style={{fontWeight: 700, fontSize: '1.35rem'}}>Something Amazing is in the Works</h3>
                   <p className="text-muted mb-4" style={{fontSize: '1.08rem', fontWeight: 500}}>
                     We're working hard to bring you an incredible experience. Be the first to know when we launch by signing up for early access.
                   </p>
+                  {message && (
+                    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, color: '#43cea2', fontWeight: 600, fontSize: '1.08rem', borderRadius: 12, marginTop: 8}}>
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="11" cy="11" r="11" fill="#43cea2" fillOpacity="0.18"/>
+                        <path d="M6 12.5L10 16L16 8" stroke="#43cea2" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                      {message}
+                    </div>
+                  )}
                   {message ? (
                     <div className="alert alert-success" role="alert" style={{fontWeight: 600, fontSize: '1.08rem', borderRadius: 12}}>
                       {message}
@@ -290,6 +328,23 @@ const LaunchingSoon = () => {
           50% { left: calc(100vw - 320px); bottom: calc(100vh - 100px); }
           100% { left: 0; bottom: 0; }
         }
+        @keyframes floatLogo {
+          0% { transform: translateY(0) scale(1); }
+          100% { transform: translateY(-10px) scale(1.07); }
+        }
+        .launching-soon-card .btn-primary:active {
+          transform: scale(0.96);
+          box-shadow: 0 2px 8px 0 #43cea244;
+        }
+        .launching-soon-card .btn-primary:hover {
+          transform: scale(1.04);
+          box-shadow: 0 4px 18px 0 #43cea288;
+        }
+        @keyframes shimmerDivider {
+          0% { filter: brightness(1.1); }
+          50% { filter: brightness(1.5); }
+          100% { filter: brightness(1.1); }
+        }
       `}</style>
       {/* Add responsive styles for mobile */}
       <style>{`
@@ -322,13 +377,10 @@ const LaunchingSoon = () => {
     flex: 1 1 40%;
     box-sizing: border-box;
   }
-  .launching-soon-card, .launching-soon-section {
-    width: 98vw !important;
-    min-width: 98vw !important;
+  .launching-soon-card {
+    padding: 1.1rem 1rem !important;
+    border-radius: 18px !important;
     max-width: 99vw !important;
-    padding: 1.1rem 0.7rem !important;
-    margin: 0.7rem auto !important;
-    border-radius: 16px !important;
   }
   .launching-soon-title, .launching-soon-subtitle {
     font-size: 1.1rem !important;
@@ -348,6 +400,13 @@ const LaunchingSoon = () => {
     text-align: center !important;
     margin: 0.3rem 0 !important;
     word-break: break-word !important;
+  }
+  .launching-soon-card h1, .launching-soon-card h3, .launching-soon-card p {
+    font-size: 1.08rem !important;
+  }
+  .launching-soon-card .btn-primary {
+    font-size: 1rem !important;
+    padding: 0.7rem 0 !important;
   }
 }
 `}</style>

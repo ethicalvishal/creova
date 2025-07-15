@@ -70,7 +70,7 @@ const LaunchCountdown = () => {
                 </p>
               </>
             )}
-            <div className="countdown-timer mb-2" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 18}}>
+            <div className="countdown-timer mb-2" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 18, flexWrap: 'wrap'}}>
               {[
                 {label: 'Days', value: countdown.days},
                 {label: 'Hours', value: countdown.hours.toString().padStart(2, '0')},
@@ -144,6 +144,22 @@ const LaunchCountdown = () => {
         @keyframes moveAccent {
           0% { background-position: 0% 50%; }
           100% { background-position: 100% 50%; }
+        }
+        @media (max-width: 600px) {
+          .countdown-timer {
+            gap: 2px !important;
+          }
+          .countdown-item {
+            min-width: 36px !important;
+            padding: 0.4rem 0.2rem !important;
+            font-size: 1.1rem !important;
+          }
+          .countdown-item span:first-child {
+            font-size: 1.1rem !important;
+          }
+          .countdown-item span:last-child {
+            font-size: 0.65rem !important;
+          }
         }
       `}</style>
     </div>
