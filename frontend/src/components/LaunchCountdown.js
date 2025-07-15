@@ -70,7 +70,7 @@ const LaunchCountdown = () => {
                 </p>
               </>
             )}
-            <div className="countdown-timer mb-2" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 18, flexWrap: 'wrap'}}>
+            <div className="countdown-timer mb-2" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8, flexWrap: 'nowrap'}}>
               {[
                 {label: 'Days', value: countdown.days},
                 {label: 'Hours', value: countdown.hours.toString().padStart(2, '0')},
@@ -80,11 +80,11 @@ const LaunchCountdown = () => {
                 <React.Fragment key={unit.label}>
                   <div className="countdown-item" style={{
                     background: 'rgba(255,255,255,0.18)',
-                    borderRadius: '18px',
-                    padding: '1.1rem 1.2rem',
+                    borderRadius: '12px',
+                    padding: '0.5rem 0.4rem',
                     margin: 0,
-                    minWidth: 70,
-                    boxShadow: '0 2px 16px 0 #43cea233',
+                    minWidth: 44,
+                    boxShadow: '0 2px 8px 0 #43cea233',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -92,31 +92,31 @@ const LaunchCountdown = () => {
                     position: 'relative',
                     fontFamily: 'monospace, Segoe UI, Arial, sans-serif',
                     fontWeight: 900,
-                    fontSize: '2.6rem',
+                    fontSize: '1.3rem',
                     color: '#fff',
-                    textShadow: '0 0 18px #43cea299, 0 2px 8px #1976d2cc',
+                    textShadow: '0 0 8px #43cea299, 0 2px 4px #1976d2cc',
                     letterSpacing: '1px',
                     transition: 'box-shadow 0.2s',
                     animation: 'glowCountdown 2s infinite alternate'
                   }}>
-                    <span style={{fontSize: '2.6rem', fontWeight: 900, lineHeight: 1}}>{unit.value}</span>
+                    <span style={{fontSize: '1.3rem', fontWeight: 900, lineHeight: 1}}>{unit.value}</span>
                     <span style={{
-                      fontSize: '0.85rem',
+                      fontSize: '0.7rem',
                       opacity: 0.85,
                       textTransform: 'uppercase',
                       fontWeight: 700,
                       letterSpacing: '0.5px',
-                      marginTop: 6
+                      marginTop: 4
                     }}>{unit.label}</span>
                   </div>
                   {idx < arr.length - 1 && (
                     <div style={{
-                      width: 18,
-                      height: 7,
+                      width: 10,
+                      height: 5,
                       borderRadius: 8,
                       background: 'linear-gradient(90deg, #1976d2 0%, #43cea2 100%)',
                       opacity: 0.32,
-                      margin: '0 6px',
+                      margin: '0 2px',
                       alignSelf: 'center',
                       animation: 'pulseAccent 1.5s infinite alternate, moveAccent 3s linear infinite'
                     }}></div>
@@ -134,8 +134,8 @@ const LaunchCountdown = () => {
       </div>
       <style>{`
         @keyframes glowCountdown {
-          0% { box-shadow: 0 2px 16px 0 #43cea233; }
-          100% { box-shadow: 0 2px 32px 0 #43cea299; }
+          0% { box-shadow: 0 2px 8px 0 #43cea233; }
+          100% { box-shadow: 0 2px 16px 0 #43cea299; }
         }
         @keyframes pulseAccent {
           0% { opacity: 0.18; }
@@ -148,6 +148,7 @@ const LaunchCountdown = () => {
         @media (max-width: 600px) {
           .countdown-timer {
             gap: 2px !important;
+            flex-wrap: wrap !important;
           }
           .countdown-item {
             min-width: 36px !important;
