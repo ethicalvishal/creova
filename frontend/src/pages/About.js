@@ -250,8 +250,8 @@ const About = () => {
                 e.currentTarget.style.boxShadow = '0 4px 16px 0 rgba(67,206,162,0.3)';
               }}
               aria-label="Contact Creova">
-                Get Started
-              </Link>
+              Get Started
+            </Link>
               <Link to="/services" className="btn btn-outline-primary btn-lg" style={{
                 borderRadius: 12,
                 fontWeight: 700,

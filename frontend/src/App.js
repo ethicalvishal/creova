@@ -5,7 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css';
 
 // Import constants
-// import { APP_CONSTANTS, PAGE_TITLES, MESSAGES, isLaunched, isCelebrationActive } from './constants';
+import { APP_CONSTANTS, PAGE_TITLES, MESSAGES, isLaunched, isCelebrationActive } from './constants';
 
 // Import components
 import Header from './components/Header';
@@ -44,14 +44,8 @@ import TermsOfService from './pages/TermsOfService';
 import Sitemap from './pages/Sitemap';
 import NotFound from './pages/NotFound';
 import BlogDetail from './pages/BlogDetail';
-// import LaunchingSoon from './pages/LaunchingSoon';
-// import CelebrationEvent from './pages/CelebrationEvent';
-// import UserLogin from './pages/UserLogin';
-// import UserRegister from './pages/UserRegister';
-// import AdminProfile from './pages/AdminProfile';
-// import AdminProducts from './pages/AdminProducts';
-// import BlogDetail from './pages/BlogDetail';
-// import AdminForgotPassword from './pages/AdminForgotPassword';
+import LaunchingSoon from './pages/LaunchingSoon';
+import CelebrationEvent from './pages/CelebrationEvent';
 
 // Import launch notification system
 import { initializeLaunchSystem } from './utils/launchNotification';
@@ -83,16 +77,16 @@ function App() {
     return cleanup;
   }, []);
 
-  // const location = window.location.pathname;
-  // const isAdminRoute = location.startsWith('/admin');
+  const location = window.location.pathname;
+  const isAdminRoute = location.startsWith('/admin');
   // Show LaunchingSoon before launch
-  // if (!isLaunched() && !isAdminRoute) {
-  //   return <LaunchingSoon />;
-  // }
+  if (!isLaunched() && !isAdminRoute) {
+    return <LaunchingSoon />;
+  }
   // Show CelebrationEvent for 24 hours after launch
-  // if (isCelebrationActive() && !isAdminRoute) {
-  //   return <CelebrationEvent />;
-  // }
+  if (isCelebrationActive() && !isAdminRoute) {
+    return <CelebrationEvent />;
+  }
 
   return (
     <Router>
