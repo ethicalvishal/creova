@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/creova/static/css/main.22421f2e.css",
-    "main.js": "/creova/static/js/main.8b5d0c05.js",
+    "main.js": "/creova/static/js/main.3500d209.js",
     "static/js/453.670e15c7.chunk.js": "/creova/static/js/453.670e15c7.chunk.js",
     "index.html": "/creova/index.html",
     "main.22421f2e.css.map": "/creova/static/css/main.22421f2e.css.map",
-    "main.8b5d0c05.js.map": "/creova/static/js/main.8b5d0c05.js.map",
+    "main.3500d209.js.map": "/creova/static/js/main.3500d209.js.map",
     "453.670e15c7.chunk.js.map": "/creova/static/js/453.670e15c7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.22421f2e.css",
-    "static/js/main.8b5d0c05.js"
+    "static/js/main.3500d209.js"
   ]
 }
