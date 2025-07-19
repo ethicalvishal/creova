@@ -5,7 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css';
 
 // Import constants
-import { APP_CONSTANTS, PAGE_TITLES, MESSAGES, isLaunched, isCelebrationActive } from './constants';
+import { APP_CONSTANTS, PAGE_TITLES, MESSAGES } from './constants';
 
 // Import components
 import Header from './components/Header';
@@ -44,11 +44,6 @@ import TermsOfService from './pages/TermsOfService';
 import Sitemap from './pages/Sitemap';
 import NotFound from './pages/NotFound';
 import BlogDetail from './pages/BlogDetail';
-import LaunchingSoon from './pages/LaunchingSoon';
-import CelebrationEvent from './pages/CelebrationEvent';
-
-// Import launch notification system
-import { initializeLaunchSystem } from './utils/launchNotification';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -71,25 +66,8 @@ function AdminRoute({ children }) {
 }
 
 function App() {
-  // Initialize launch notification system
-  useEffect(() => {
-    const cleanup = initializeLaunchSystem();
-    return cleanup;
-  }, []);
-
-  const location = window.location.pathname;
-  const isAdminRoute = location.startsWith('/admin');
-  // Show LaunchingSoon before launch
-  if (!isLaunched() && !isAdminRoute) {
-    return <LaunchingSoon />;
-  }
-  // Show CelebrationEvent for 24 hours after launch
-  if (isCelebrationActive() && !isAdminRoute) {
-    return <CelebrationEvent />;
-  }
-
   return (
-    <Router>
+    <Router basename="/creova">
       {/* Global animated IT background */}
       <div id="global-bg-animated">
         {/* Animated SVG gradient */}

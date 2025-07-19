@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { APP_CONSTANTS, getLaunchStatus, isLaunched } from '../constants';
+import { APP_CONSTANTS } from '../constants';
 import HeroSection from '../components/HeroSection';
 import './HomeEnhanced.css'; // Add a new CSS file for enhanced styles
 // Remove SVG imports for logos
@@ -288,10 +288,10 @@ const Home = () => {
           </svg>
         </div>
       <HeroSection
-        title={isLaunched() ? 'Empowering Startups with Technology Solutions' : 'Building the Future of Startups'}
-        subtitle={isLaunched() ? 'Creova Technologies provides comprehensive technology solutions to help startups launch, scale, and succeed in the digital age.' : "Creova Technologies is launching soon! We're building something amazing for founders and startups. Our journey is just beginning—stay tuned for updates and early access."}
+        title={'Empowering Startups with Technology Solutions'}
+        subtitle={'Creova Technologies provides comprehensive technology solutions to help startups launch, scale, and succeed in the digital age.'}
         buttons={[
-          { label: isLaunched() ? 'Get Started' : APP_CONSTANTS.NOTIFY_ME, href: '/contact', primary: true },
+          { label: 'Get Started', href: '/contact', primary: true },
           { label: 'Learn More', href: '/about', primary: false }
         ]}
         backgroundType="animated"
@@ -541,9 +541,7 @@ const Home = () => {
               <span role="img" aria-label="gear">⚙️</span> Empowering startups with cutting-edge technology solutions
             </p>
             <p style={{color: '#5a5a5a', marginBottom: '2rem'}}>
-              {isLaunched() 
-                ? "We offer a comprehensive suite of technology services to help startups succeed."
-                : "We're getting ready to launch a full suite of technology services for startups. Sign up to get notified when our services go live!"}
+              We offer a comprehensive suite of technology services to help startups succeed.
             </p>
           </div>
           <div className="row">
@@ -560,7 +558,7 @@ const Home = () => {
                     <h5 className="card-title mb-2" style={{fontWeight: 700, fontSize: '1.18rem'}}>{service.title}</h5>
                     <p className="card-text mb-0" style={{fontSize: '1rem', color: '#5a5a5a'}}>{service.description}</p>
                     <div className="mt-auto pt-3">
-                      <span className="badge bg-warning text-dark">{getLaunchStatus()}</span>
+                      <span className="badge bg-warning text-dark">Live</span>
                     </div>
                   </div>
                 </div>
@@ -781,16 +779,13 @@ const Home = () => {
           <div className="row justify-content-center text-center">
             <div className="col-lg-8">
               <h2 className="mb-4">
-                {isLaunched() ? 'Ready to Build Something Amazing?' : getLaunchStatus()}
+                Ready to Build Something Amazing?
               </h2>
               <p className="lead mb-4">
-                {isLaunched() 
-                  ? "Let's discuss your project and see how we can help bring your vision to life. Get started with Creova today!"
-                  : "We're getting ready to help founders and startups build something amazing. Sign up to get notified when we launch!"
-                }
+                Let's discuss your project and see how we can help bring your vision to life. Get started with Creova today!
               </p>
               <div className="cta-buttons">
-                <Link to="/contact" className="btn btn-primary btn-lg me-3 mb-3 shadow" style={{
+                <a href="/contact" className="btn btn-primary btn-lg me-3 mb-3 shadow" style={{
                   background: 'linear-gradient(135deg, #1976d2 0%, #40a9ff 100%)',
                   border: 'none',
                   borderRadius: '12px',
@@ -809,8 +804,8 @@ const Home = () => {
                   e.currentTarget.style.transform = 'translateY(0)';
                   e.currentTarget.style.boxShadow = '0 8px 24px 0 rgba(25,118,210,0.25)';
                 }}>
-                  {isLaunched() ? 'Start Your Project' : APP_CONSTANTS.NOTIFY_ME}
-                </Link>
+                  Start Your Project
+                </a>
 
                 <Link to="/about" className="btn btn-outline-primary btn-lg mb-3 shadow" style={{
                   border: '2px solid #1976d2',

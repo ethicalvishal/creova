@@ -1,54 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { APP_CONSTANTS, getLaunchStatus, isLaunched, getPostLaunchServices } from '../constants';
+import { APP_CONSTANTS, getPostLaunchServices } from '../constants';
 import { buttonFeatures } from '../utils/buttonFeatures';
 import HeroSection from '../components/HeroSection';
+import Card from '../components/Card';
 
 const Services = () => {
-  const services = isLaunched() ? getPostLaunchServices() : [
-    {
-      id: 'mvp',
-      icon: '🚀',
-      title: 'MVP Development',
-      description: 'Get your startup idea to market in 2-4 weeks, not months. We build fast, scalable MVPs that validate your business model and attract investors.',
-      features: ['Rapid prototyping', 'User feedback integration', 'Scalable architecture', 'Investor-ready demos']
-    },
-    {
-      id: 'ai',
-      icon: '🤖',
-      title: 'AI & Automation',
-      description: 'Leverage cutting-edge AI to automate processes, analyze data, and create intelligent solutions that give you a competitive edge.',
-      features: ['Machine learning models', 'Process automation', 'Data analytics', 'Predictive insights']
-    },
-    {
-      id: 'mobile',
-      icon: '📱',
-      title: 'Mobile Apps',
-      description: 'Native and cross-platform mobile applications that users love. From concept to App Store in record time.',
-      features: ['iOS & Android development', 'Cross-platform solutions', 'App Store optimization', 'Performance optimization']
-    },
-    {
-      id: 'uiux',
-      icon: '🎨',
-      title: 'UI/UX Design',
-      description: 'Beautiful, intuitive interfaces that convert visitors into customers. Design that drives growth and engagement.',
-      features: ['User research', 'Wireframing & prototyping', 'Visual design', 'Usability testing']
-    },
-    {
-      id: 'cloud',
-      icon: '☁️',
-      title: 'Cloud Solutions',
-      description: 'Scalable cloud infrastructure that grows with your startup. From AWS to serverless, we\'ve got you covered.',
-      features: ['AWS/Azure/GCP setup', 'Serverless architecture', 'DevOps automation', 'Cost optimization']
-    },
-    {
-      id: 'growth',
-      icon: '📊',
-      title: 'Growth Strategy',
-      description: 'Data-driven growth strategies and analytics to help your startup scale efficiently and sustainably.',
-      features: ['Analytics setup', 'A/B testing', 'Conversion optimization', 'Growth hacking']
-    }
-  ];
+  const services = getPostLaunchServices();
 
   // Service interaction functions
   const handleServiceClick = (service) => {
@@ -121,8 +79,8 @@ const Services = () => {
     <div className="services-page">
       {/* Hero Section */}
       <HeroSection
-        title={isLaunched() ? 'Technology Services for Startups' : 'Services Coming Soon'}
-        subtitle={isLaunched() ? 'Comprehensive technology solutions to help startups launch, scale, and succeed in the digital age.' : "We're building a comprehensive suite of technology services for startups. Sign up to get notified when our services go live!"}
+        title={'Technology Services for Startups'}
+        subtitle={'Comprehensive technology solutions to help startups launch, scale, and succeed in the digital age.'}
         buttons={[
           { label: 'Explore Services', href: '#services', primary: true },
           { label: 'Get in Touch', href: '/contact', primary: false }
@@ -139,94 +97,23 @@ const Services = () => {
         <div className="section-title">
             <h2>Our Services</h2>
           <p>
-            {isLaunched() 
-                ? "We offer a comprehensive suite of technology services to help startups succeed."
-                : "We're getting ready to launch a full suite of technology services for startups. Sign up to get notified when our services go live!"
-            }
+            We offer a comprehensive suite of technology services to help startups succeed.
           </p>
         </div>
-        <div className="row">
-            {services.map((service, index) => (
-              <div key={service.id} className="col-lg-4 col-md-6 mb-4 d-flex align-items-stretch">
-                <div className="card h-100 service-card" style={{
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  borderRadius: 24,
-                  boxShadow: '0 8px 32px 0 rgba(25,118,210,0.15)',
-                  background: 'rgba(255,255,255,0.96)',
-                  backdropFilter: 'blur(12px)',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  minHeight: 320,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  border: '2.5px solid',
-                  borderImage: 'linear-gradient(120deg, #1976d2 40%, #40a9ff 100%) 1',
-                }} 
-                onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-5px)'}
-                onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
-                onClick={() => handleServiceClick(service)}>
-                  <div className="card-body text-center p-4">
-                    {/* Home-style circular icon background */}
-                    <div className="service-icon mb-4" style={{
-                      width: 64,
-                      height: 64,
-                      margin: '0 auto 1rem auto',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      background: 'rgba(64,169,255,0.13)',
-                      borderRadius: '50%',
-                      boxShadow: '0 4px 18px 0 rgba(25,118,210,0.10)',
-                      border: '2.5px solid rgba(25,118,210,0.10)',
-                      fontSize: 38,
-                      color: '#1976d2',
-                      animation: 'floatY 3.5s ease-in-out infinite',
-                      filter: 'drop-shadow(0 0 12px #40a9ff55)'
-                    }}>
-                      <span>{service.icon}</span>
-                    </div>
-                    <h5 className="card-title">{service.title}</h5>
-                    <p className="card-text">{service.description}</p>
-                    {service.features && (
-                      <ul className="list-unstyled mt-3">
-                    {service.features.map((feature, idx) => (
-                          <li key={idx} className="mb-2">
-                            <i className="fas fa-check text-success me-2"></i>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                    )}
-                    <div className="mt-auto pt-3">
-                      {isLaunched() ? (
-                        <div className="d-flex gap-2 justify-content-center">
-                          <button 
-                            className="btn btn-primary btn-sm"
-                            onClick={(e) => {e.stopPropagation(); handleBookConsultation(service);}}>
-                            <i className="fas fa-calendar me-1"></i>
-                            Book Consultation
-                          </button>
-                          <button 
-                            className="btn btn-outline-primary btn-sm"
-                            onClick={(e) => {e.stopPropagation(); handleGetQuote(service);}}>
-                            <i className="fas fa-calculator me-1"></i>
-                            Get Quote
-                          </button>
-                        </div>
-                      ) : (
-                        <span className="badge bg-warning text-dark">{getLaunchStatus()}</span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          {services.map(service => (
+            <div className="col" key={service.id}>
+              <Card 
+                title={service.title}
+                description={service.description}
+                icon={service.icon}
+                features={service.features}
+              />
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Why Choose Our Services */}
       <section className="section position-relative" style={{
@@ -450,17 +337,14 @@ const Services = () => {
         <div className="row justify-content-center text-center">
           <div className="col-lg-8">
             <h2 className="mb-4">
-                {isLaunched() ? 'Ready to Build Something Amazing?' : getLaunchStatus()}
+                Ready to Build Something Amazing?
             </h2>
             <p className="lead mb-4">
-              {isLaunched() 
-                  ? "Let's discuss your project and see how we can help bring your vision to life. Get started with Creova today!"
-                  : "We're getting ready to help founders and startups build something amazing. Sign up to get notified when we launch!"
-              }
+              Let's discuss your project and see how we can help bring your vision to life. Get started with Creova today!
             </p>
               <div className="cta-buttons">
                 <Link to="/contact" className="btn btn-primary btn-lg me-3 mb-2" aria-label="Start Your Project with Creova">
-                  {isLaunched() ? 'Start Your Project' : APP_CONSTANTS.NOTIFY_ME}
+                  Start Your Project
                 </Link>
                 <Link to="/about" className="btn btn-outline-primary btn-lg mb-2" aria-label="Meet Our Team">
                   Meet Our Team

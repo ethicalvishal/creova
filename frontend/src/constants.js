@@ -1,7 +1,6 @@
 export const API_URL = "https://creova-backend.onrender.com/api";
 // Centralized constants for Creova Technologies
 export const APP_CONSTANTS = {
-  LAUNCHING_SOON: 'Launching Soon',
   COMPANY_NAME: 'Creova Technologies',
   COMPANY_TAGLINE: 'Building the Future of Startups',
   NOTIFY_ME: 'Notify Me',
@@ -29,21 +28,6 @@ export const APP_CONSTANTS = {
   HIRE_US: 'Hire Us',
   GET_QUOTE: 'Get Quote',
   SCHEDULE_CALL: 'Schedule Call'
-};
-
-// Utility function to check if launch date has passed
-export function isLaunched() {
-  const launchDate = new Date(APP_CONSTANTS.LAUNCH_DATE);
-  const now = new Date();
-  return now >= launchDate;
-}
-
-// Utility to check if celebration event is active (within 24 hours after launch)
-export const isCelebrationActive = () => {
-  const launchDate = new Date(APP_CONSTANTS.LAUNCH_DATE);
-  const celebrationEnd = new Date(launchDate.getTime() + APP_CONSTANTS.CELEBRATION_WINDOW_HOURS * 60 * 60 * 1000);
-  const now = new Date();
-  return now >= launchDate && now < celebrationEnd;
 };
 
 // Get appropriate badge text based on launch status
