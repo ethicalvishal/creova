@@ -28,6 +28,9 @@ const AdminDashboard = () => {
   });
   const navigate = useNavigate();
 
+  // Mobile sidebar toggle
+  const handleSidebarToggle = () => setSidebarOpen((v) => !v);
+
   // Admin authentication check
   useEffect(() => {
     const adminToken = localStorage.getItem('adminToken');
@@ -180,6 +183,15 @@ const AdminDashboard = () => {
       minHeight: '100vh',
       background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)'
     }}>
+      {/* Hamburger for mobile */}
+      <button
+        className="btn btn-primary d-lg-none position-fixed"
+        style={{ top: 18, left: 18, zIndex: 3001, borderRadius: 8, padding: 8, width: 40, height: 40 }}
+        onClick={handleSidebarToggle}
+        aria-label="Toggle sidebar"
+      >
+        <i className={`fas ${sidebarOpen ? 'fa-times' : 'fa-bars'}`}></i>
+      </button>
       {/* Enhanced Sidebar */}
       <aside className={`admin-sidebar bg-white shadow-lg${sidebarOpen ? ' open' : ''}`} 
              style={{
@@ -188,7 +200,8 @@ const AdminDashboard = () => {
                zIndex: 1020,
                position: 'fixed',
                height: '100vh',
-               overflowY: 'auto'
+               overflowY: 'auto',
+               left: sidebarOpen ? 0 : -280
              }}>
         <div className="d-flex flex-column h-100">
           {/* Sidebar Header */}
@@ -305,10 +318,7 @@ const AdminDashboard = () => {
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-grow-1" style={{
-        marginLeft: sidebarOpen ? '280px' : '70px',
-        transition: 'margin-left 0.3s ease'
-      }}>
+      <main className="admin-main-content flex-grow-1" style={{ marginLeft: sidebarOpen ? 280 : 0, transition: 'margin-left 0.3s' }}>
         {/* Top Header */}
         <header className="bg-white shadow-sm border-bottom" style={{height: '70px'}}>
           <div className="d-flex align-items-center justify-content-between h-100 px-4">
@@ -440,16 +450,22 @@ const AdminDashboard = () => {
         
         @media (max-width: 991px) {
           .admin-sidebar {
-            width: 70px !important;
+            left: -100vw !important;
+            width: 240px !important;
+            position: fixed !important;
+            z-index: 2000;
+            transition: left 0.3s;
           }
-          
-          main {
-            margin-left: 70px !important;
-          }
-          
           .admin-sidebar.open {
-            width: 280px !important;
+            left: 0 !important;
           }
+          .admin-main-content {
+            margin-left: 0 !important;
+            width: 100vw !important;
+          }
+        }
+        .admin-sidebar {
+          background: #fff;
         }
       `}</style>
     </div>

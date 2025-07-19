@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AdminAnalytics = () => {
   const [analytics, setAnalytics] = useState({
@@ -23,9 +24,9 @@ const AdminAnalytics = () => {
   const [dateRange, setDateRange] = useState('30');
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   fetchAnalytics();
-  // }, [dateRange]);
+  useEffect(() => {
+    fetchAnalytics();
+  }, [dateRange]);
 
   const fetchAnalytics = async () => {
     setLoading(true);
@@ -399,6 +400,7 @@ const AdminAnalytics = () => {
     </div>
   );
 
+  const navigate = useNavigate();
   if (loading) {
     return (
       <div className="d-flex justify-content-center align-items-center" style={{height: '400px'}}>
@@ -416,10 +418,14 @@ const AdminAnalytics = () => {
         <div className="container">
           <div className="d-flex justify-content-between align-items-center py-3">
             <div className="d-flex align-items-center">
-              <a href="/admin" className="btn btn-outline-secondary btn-sm me-3" aria-label="Back to Admin Dashboard">
+              <button
+                className="btn btn-outline-secondary btn-sm me-3"
+                aria-label="Back to Admin Dashboard"
+                onClick={() => navigate('/admin')}
+              >
                 <i className="fas fa-arrow-left me-1"></i>
                 Back to Dashboard
-              </a>
+              </button>
               <div>
                 <h4 className="mb-0 fw-bold text-dark">Analytics & Report</h4>
                 <small className="text-muted">View and analyze website analytics and reports</small>

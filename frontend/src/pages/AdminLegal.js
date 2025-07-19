@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { API_URL } from '../constants';
+import { useNavigate } from 'react-router-dom';
 
 const AdminLegal = () => {
   const [pages, setPages] = useState([]);
@@ -12,6 +13,8 @@ const AdminLegal = () => {
     page_type: '',
     content: '',
   });
+
+  const navigate = useNavigate();
 
   // Fetch all legal pages
   const fetchPages = async () => {
@@ -81,10 +84,14 @@ const AdminLegal = () => {
         <div className="container">
           <div className="d-flex justify-content-between align-items-center py-3">
             <div className="d-flex align-items-center">
-              <a href="/admin" className="btn btn-outline-secondary btn-sm me-3" aria-label="Back to Admin Dashboard">
+              <button
+                className="btn btn-outline-secondary btn-sm me-3"
+                aria-label="Back to Admin Dashboard"
+                onClick={() => navigate(-1)}
+              >
                 <i className="fas fa-arrow-left me-1"></i>
                 Back to Dashboard
-              </a>
+              </button>
               <div>
                 <h4 className="mb-0 fw-bold text-dark">Legal Pages</h4>
                 <small className="text-muted">Manage all legal and policy pages</small>

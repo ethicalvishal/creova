@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AdminSettings = () => {
   const [settings, setSettings] = useState({
@@ -721,6 +722,8 @@ const AdminSettings = () => {
     }
   };
 
+  const navigate = useNavigate();
+
   return (
     <div className="admin-settings-page" style={{background: 'linear-gradient(135deg, #12c2e9 0%, #00bcd4 100%)', minHeight: '100vh'}}>
       {/* Header - Match AdminUsers */}
@@ -728,10 +731,14 @@ const AdminSettings = () => {
         <div className="container">
           <div className="d-flex justify-content-between align-items-center py-3">
             <div className="d-flex align-items-center">
-              <a href="/admin" className="btn btn-outline-secondary btn-sm me-3" aria-label="Back to Admin Dashboard">
+              <button
+                className="btn btn-outline-secondary btn-sm me-3"
+                aria-label="Back to Admin Dashboard"
+                onClick={() => navigate(-1)}
+              >
                 <i className="fas fa-arrow-left me-1"></i>
                 Back to Dashboard
-              </a>
+              </button>
               <div>
                 <h4 className="mb-0 fw-bold text-dark">System Settings</h4>
                 <small className="text-muted">Configure all system and website settings</small>

@@ -23,6 +23,7 @@ const HeroSection = ({
         alignItems: 'center',
         background: backgroundType === 'color' ? backgroundColor : 'rgba(255,255,255,0.85)',
         overflow: 'hidden',
+        paddingTop: typeof window !== 'undefined' && window.innerWidth < 768 ? '110px' : '80px',
       }}
     >
       {/* Animated SVG/Gradient Background */}

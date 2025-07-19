@@ -470,7 +470,7 @@ const Header = () => {
             width: 320px;
             max-width: 90vw;
             height: 100vh;
-            background: #fff;
+            background: #162447;
             box-shadow: -2px 0 24px rgba(0,0,0,0.08);
             z-index: 2100;
             transition: right 0.3s cubic-bezier(.77,0,.18,1);

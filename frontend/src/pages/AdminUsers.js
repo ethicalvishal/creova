@@ -20,21 +20,7 @@ const AdminUsers = () => {
   const [addSuccess, setAddSuccess] = useState(null);
   const addDropdownRef = useRef(null);
 
-  useEffect(() => {
-    fetchUsers();
-  }, [fetchUsers]);
-
-  useEffect(() => {
-    if (!showAddDropdown) return;
-    function handleClickOutside(event) {
-      if (addDropdownRef.current && !addDropdownRef.current.contains(event.target)) {
-        setShowAddDropdown(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [showAddDropdown]);
-
+  // Move fetchUsers above useEffect to avoid initialization error
   const fetchUsers = async () => {
     setLoading(true);
     setError(null);
@@ -51,6 +37,21 @@ const AdminUsers = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  useEffect(() => {
+    if (!showAddDropdown) return;
+    function handleClickOutside(event) {
+      if (addDropdownRef.current && !addDropdownRef.current.contains(event.target)) {
+        setShowAddDropdown(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [showAddDropdown]);
 
   const handleDeleteUser = async () => {
     if (!deleteUserId) return;
